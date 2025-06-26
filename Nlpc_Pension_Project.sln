@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlpc_Pension_Project", "Nlpc_Pension_Project\Nlpc_Pension_Project.csproj", "{CEEE5F3C-7806-45B6-BD12-74ABD062837A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlpc_Pension_Project.Domain", "Nlpc_Pension_Project.Domain\Nlpc_Pension_Project.Domain.csproj", "{51A17751-FEEE-4FF2-9F8F-4E07DAEE85E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlpc_Pension_Project.Application", "Nlpc_Pension_Project.Application\Nlpc_Pension_Project.Application.csproj", "{897A5BB4-A968-4D94-B5A2-F9CB24C306F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlpc_Pension_Project.Infrastructure", "Nlpc_Pension_Project.Infrastructure\Nlpc_Pension_Project.Infrastructure.csproj", "{0D9A03DC-C04C-4983-A3D3-B29CF4ED3136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nlpc_Pension_Project.Common", "Nlpc_Pension_Project.Common\Nlpc_Pension_Project.Common.csproj", "{C24600F2-682B-4847-B140-CDB2DF2D7CC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLPC_Pension_ProjectTesting", "NLPC_Pension_ProjectTesting\NLPC_Pension_ProjectTesting.csproj", "{96F18B1F-112E-4805-8C49-3C6219DC0433}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEEE5F3C-7806-45B6-BD12-74ABD062837A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEE5F3C-7806-45B6-BD12-74ABD062837A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEEE5F3C-7806-45B6-BD12-74ABD062837A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEEE5F3C-7806-45B6-BD12-74ABD062837A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A17751-FEEE-4FF2-9F8F-4E07DAEE85E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A17751-FEEE-4FF2-9F8F-4E07DAEE85E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A17751-FEEE-4FF2-9F8F-4E07DAEE85E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A17751-FEEE-4FF2-9F8F-4E07DAEE85E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{897A5BB4-A968-4D94-B5A2-F9CB24C306F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{897A5BB4-A968-4D94-B5A2-F9CB24C306F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{897A5BB4-A968-4D94-B5A2-F9CB24C306F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{897A5BB4-A968-4D94-B5A2-F9CB24C306F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D9A03DC-C04C-4983-A3D3-B29CF4ED3136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D9A03DC-C04C-4983-A3D3-B29CF4ED3136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D9A03DC-C04C-4983-A3D3-B29CF4ED3136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D9A03DC-C04C-4983-A3D3-B29CF4ED3136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C24600F2-682B-4847-B140-CDB2DF2D7CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C24600F2-682B-4847-B140-CDB2DF2D7CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C24600F2-682B-4847-B140-CDB2DF2D7CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C24600F2-682B-4847-B140-CDB2DF2D7CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F18B1F-112E-4805-8C49-3C6219DC0433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F18B1F-112E-4805-8C49-3C6219DC0433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F18B1F-112E-4805-8C49-3C6219DC0433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F18B1F-112E-4805-8C49-3C6219DC0433}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBECCF65-E349-4888-8ED8-5926B08F0D43}
+	EndGlobalSection
+EndGlobal

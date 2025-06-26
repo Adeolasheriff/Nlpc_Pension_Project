@@ -1,0 +1,6 @@
+@Nlpc_Pension_Project_HostAddress = http://localhost:5204
+
+GET {{Nlpc_Pension_Project_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
