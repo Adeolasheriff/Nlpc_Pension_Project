@@ -1,12 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using Nlpc_Pension_Project.Application.MappingProfile;
-using Nlpc_Pension_Project.Application.Services;
-using Nlpc_Pension_Project.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Nlpc_Pension_Project.Common;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Hangfire;
+using Nlpc_Pension_Project.Application.Services.Interface;
+using Nlpc_Pension_Project.Common.validations;
+using Nlpc_Pension_Project.Application.Services.Implementations;
+using Nlpc_Pension_Project.Application.Dtos;
+using Nlpc_Pension_Project.Infrastructure.AppDbContext;
+using Nlpc_Pension_Project.Infrastructure.BackGroundJobs;
+using Nlpc_Pension_Project.Infrastructure.Repository;
 
 
 
@@ -25,6 +29,9 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 //Configure FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<MemberValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployerDtoValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDto>();
+builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDtoValidator>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
@@ -32,6 +39,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IContributionService, ContributionService>();
 builder.Services.AddScoped<ICalculateBenefit, CalculateBenefitService>();
+builder.Services.AddScoped<IEmployerService, EmployerService>();
 
 // Configure Hangfire
 builder.Services.AddHangfire(config =>

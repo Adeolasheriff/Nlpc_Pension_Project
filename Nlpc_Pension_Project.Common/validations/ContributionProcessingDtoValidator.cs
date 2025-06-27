@@ -4,7 +4,7 @@ using FluentValidation;
 using Nlpc_Pension_Project.Application.Dtos;
 using Nlpc_Pension_Project.Domain.Enums;
 
-namespace Nlpc_Pension_Project.Common;
+namespace Nlpc_Pension_Project.Common.validations;
 
 public class ContributionProcessingDtoValidator : AbstractValidator<ContributionProcessingDto>
 {

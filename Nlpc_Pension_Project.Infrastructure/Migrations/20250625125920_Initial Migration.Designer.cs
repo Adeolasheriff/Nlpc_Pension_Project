@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Nlpc_Pension_Project.Infrastructure;
+using Nlpc_Pension_Project.Infrastructure.AppDbContext;
 
 #nullable disable
 

@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Nlpc_Pension_Project.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Nlpc_Pension_Project.Infrastructure.AppDbContext;
 
 public class RealDatabaseWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
 {

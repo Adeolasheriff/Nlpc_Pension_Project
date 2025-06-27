@@ -5,8 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Nlpc_Pension_Project.Domain.Entities;
 using Nlpc_Pension_Project.Domain.Enums;
+using Nlpc_Pension_Project.Infrastructure.AppDbContext;
 
-namespace Nlpc_Pension_Project.Infrastructure;
+namespace Nlpc_Pension_Project.Infrastructure.BackGroundJobs;
 
 // BackgroundJobs.cs
 public class BackgroundJobs : IBackgroundJobService
@@ -43,9 +44,9 @@ public class BackgroundJobs : IBackgroundJobService
             Cron.Weekly);
     }
 
-    
-        //  monthly validation contribution report
-        public void GenerateMonthlyReports()
+
+    //  monthly validation contribution report
+    public void GenerateMonthlyReports()
     {
         using var scope = _serviceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -72,12 +73,12 @@ public class BackgroundJobs : IBackgroundJobService
         // Optional: save to report table or log
         Console.WriteLine($"[MonthlyReport] Members without contribution this month: {report.Count}");
     }
-    
 
-   
 
-        // Benefit eligibility update logic
-        public void UpdateBenefitEligibility()
+
+
+    // Benefit eligibility update logic
+    public void UpdateBenefitEligibility()
     {
         using var scope = _serviceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

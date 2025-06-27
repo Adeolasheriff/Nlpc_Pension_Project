@@ -1,24 +1,45 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Nlpc_Pension_Project.Application.Dtos;
+using Nlpc_Pension_Project.Application.Services.Interface;
 using Nlpc_Pension_Project.Domain.Entities;
 using Nlpc_Pension_Project.Domain.Enums;
-using Nlpc_Pension_Project.Infrastructure;
+using Nlpc_Pension_Project.Infrastructure.AppDbContext;
 
-namespace Nlpc_Pension_Project.Application.Services;
+
+
+namespace Nlpc_Pension_Project.Application.Services.Implementations;
 
 public class CalculateBenefitService : ICalculateBenefit
 {
     private readonly ApplicationDbContext _context;
+    private readonly IValidator<BenefitRequestDto> _validator;
 
-    public CalculateBenefitService(ApplicationDbContext context)
+    public CalculateBenefitService(ApplicationDbContext context, IValidator<BenefitRequestDto> validator)
     {
         _context = context;
+        _validator = validator;
     }
 
     public async Task<Responses<BenefitDto>> CalculateBenefit(int memberId, CancellationToken ct)
     {
         var requestTime = DateTime.UtcNow;
         var requestId = Guid.NewGuid().ToString();
+
+
+        var dto = new BenefitRequestDto { MemberId = memberId };
+
+        // Synchronous validation
+        var validationResult = _validator.Validate(dto);
+        if (!validationResult.IsValid)
+        {
+            var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+            return Responses<BenefitDto>.Failure(
+                requestTime,
+                "Validation failed: " + string.Join(", ", errors),
+                "400"
+            );
+        }
 
         try
         {

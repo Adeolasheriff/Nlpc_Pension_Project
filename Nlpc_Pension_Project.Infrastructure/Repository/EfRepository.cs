@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Nlpc_Pension_Project.Domain;
 using Nlpc_Pension_Project.Domain.Entities;
+using Nlpc_Pension_Project.Infrastructure.AppDbContext;
 
-namespace Nlpc_Pension_Project.Infrastructure;
+namespace Nlpc_Pension_Project.Infrastructure.Repository;
 
 // IRepository.cs
 
@@ -32,7 +33,7 @@ public class EfRepository<T> : IRepository<T> where T : BaseEntity
     {
         return await _dbContext.Set<T>()
             .Where(e => !e.IsDeleted)
-            .OrderByDescending(e => e.CreatedAt) 
+            .OrderByDescending(e => e.CreatedAt)
             .ToListAsync();
     }
 

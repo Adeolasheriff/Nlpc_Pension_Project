@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Azure;
 using Nlpc_Pension_Project.Application.Dtos;
+using Nlpc_Pension_Project.Application.Services.Interface;
 using Nlpc_Pension_Project.Domain.Entities;
-using Nlpc_Pension_Project.Infrastructure;
+using Nlpc_Pension_Project.Infrastructure.Repository;
 
 
-namespace Nlpc_Pension_Project.Application.Services;
+namespace Nlpc_Pension_Project.Application.Services.Implementations;
 
 public class MemberService : IMemberService
 {
@@ -50,21 +50,7 @@ public class MemberService : IMemberService
         }
     }
 
-    //public async Task<Responses<IEnumerable<MemberDto>>> GetAllAsync()
-    //{
-    //    var requestTime = DateTime.UtcNow;
-    //    var requestId = Guid.NewGuid().ToString();
-    //    try
-    //    {
-    //        var members = await _repository.ListAllMemberAsync();
-    //        var dto = _mapper.Map<IEnumerable<MemberDto>>(members);
-    //        return Responses<IEnumerable<MemberDto>>.Success(requestTime, dto, "200", "Members retrieved successfully", null, requestId);
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        return Responses<IEnumerable<MemberDto>>.Failure(requestTime, $"An error occurred: {ex.Message}", "500");
-    //    }
-    //}
+
 
     public async Task<Responses<MemberDto>> GetByIdAsync(int id)
     {

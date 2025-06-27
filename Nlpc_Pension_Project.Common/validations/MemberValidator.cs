@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Nlpc_Pension_Project.Application.Dtos;
 
-namespace Nlpc_Pension_Project.Common;
+namespace Nlpc_Pension_Project.Common.validations;
 
 // MemberValidator.cs
 public class MemberValidator : AbstractValidator<CreateMemberDto>

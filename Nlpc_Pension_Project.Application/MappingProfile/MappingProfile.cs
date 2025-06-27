@@ -11,16 +11,15 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        //CreateMap<Member, MemberDto>();
-        CreateMap<Member, MemberDto>()
-       .AfterMap((src, dest) =>
-    {
-        dest.Contributions = src.Contributions
-            .Where(c => !c.IsDeleted)
-            .OrderByDescending(c => c.CreatedAt)
-            .ToList();
-    });
+        CreateMap<Member, MemberDto>();
 
         CreateMap<CreateMemberDto, Member>();
+
+        CreateMap<Employer, EmployerDto>();
+
+
+        CreateMap<CreateEmployerDto, Employer>();
+
+
     }
 }

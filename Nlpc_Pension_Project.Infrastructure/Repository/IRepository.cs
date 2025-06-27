@@ -1,6 +1,6 @@
 ﻿using Nlpc_Pension_Project.Domain;
 
-namespace Nlpc_Pension_Project.Infrastructure;
+namespace Nlpc_Pension_Project.Infrastructure.Repository;
 
 public interface IRepository<T> where T : BaseEntity
 {

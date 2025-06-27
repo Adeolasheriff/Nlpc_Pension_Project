@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Nlpc_Pension_Project.Application.Dtos;
+using Nlpc_Pension_Project.Application.Services.Interface;
 using Nlpc_Pension_Project.Domain.Entities;
 using Nlpc_Pension_Project.Domain.Enums;
-using Nlpc_Pension_Project.Infrastructure;
+using Nlpc_Pension_Project.Infrastructure.Repository;
 
-namespace Nlpc_Pension_Project.Application.Services;
+namespace Nlpc_Pension_Project.Application.Services.Implementations;
 
 public class ContributionService : IContributionService
 {
@@ -30,9 +31,9 @@ public class ContributionService : IContributionService
             var member = await _memberRepository.GetByIdAsync(request.MemberId);
             if (member == null || member.IsDeleted)
             {
-                return Responses<ContributionProcessingDto>.Failure( "Member not found");
+                return Responses<ContributionProcessingDto>.Failure("Member not found");
             }
-            
+
 
             // Business rule: Monthly contributions must be within the same calendar month
             if (request.Type == ContributionType.Monthly)
@@ -53,7 +54,7 @@ public class ContributionService : IContributionService
                         requestId);
                 }
             }
-            
+
             var contribution = new Contribution
             {
                 ReferenceNumber = Guid.NewGuid(),
@@ -69,11 +70,11 @@ public class ContributionService : IContributionService
         }
         catch (ValidationException ex)
         {
-            return Responses<ContributionProcessingDto>.Failure( $"Validation error: {ex.Message}");
+            return Responses<ContributionProcessingDto>.Failure($"Validation error: {ex.Message}");
         }
         catch (Exception ex)
         {
-            return Responses<ContributionProcessingDto>.Failure( $"An unexpected error occurred{ex.Message}");
+            return Responses<ContributionProcessingDto>.Failure($"An unexpected error occurred{ex.Message}");
         }
     }
 }

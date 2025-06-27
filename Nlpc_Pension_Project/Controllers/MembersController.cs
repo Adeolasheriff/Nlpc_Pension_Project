@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nlpc_Pension_Project.Application.Dtos;
 using Nlpc_Pension_Project.Application.Services;
+using Nlpc_Pension_Project.Application.Services.Interface;
 
 namespace Nlpc_Pension_Project.Controllers;
 

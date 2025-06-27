@@ -1,8 +1,6 @@
-﻿
+﻿using Nlpc_Pension_Project.Application.Dtos;
 
-using Nlpc_Pension_Project.Application.Dtos;
-
-namespace Nlpc_Pension_Project.Application.Services;
+namespace Nlpc_Pension_Project.Application.Services.Interface;
 
 public interface IContributionService
 {

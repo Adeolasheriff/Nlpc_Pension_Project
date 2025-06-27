@@ -3,7 +3,7 @@ using Nlpc_Pension_Project.Domain.Entities;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace Nlpc_Pension_Project.Infrastructure;
+namespace Nlpc_Pension_Project.Infrastructure.AppDbContext;
 
 // ApplicationDbContext.cs
 public class ApplicationDbContext : DbContext
