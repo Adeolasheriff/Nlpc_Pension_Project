@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Nlpc_Pension_Project.Application.Dtos;
 using Nlpc_Pension_Project.Application.Services.Interface;
 using Nlpc_Pension_Project.Domain.Entities;
+using Nlpc_Pension_Project.Infrastructure;
 using Nlpc_Pension_Project.Infrastructure.Repository;
 
 
-namespace Nlpc_Pension_Project.Application.Services.Implementations;
+namespace Nlpc_Pension_Project.Application.Services;
 
 public class MemberService : IMemberService
 {
+    
     private readonly IRepository<Member> _repository;
     private readonly IMapper _mapper;
 
@@ -143,4 +146,5 @@ public class MemberService : IMemberService
             return Responses<bool>.Failure(requestTime, $"An error occurred: {ex.Message}", "500");
         }
     }
+   
 }

@@ -11,6 +11,11 @@ using Nlpc_Pension_Project.Application.Dtos;
 using Nlpc_Pension_Project.Infrastructure.AppDbContext;
 using Nlpc_Pension_Project.Infrastructure.BackGroundJobs;
 using Nlpc_Pension_Project.Infrastructure.Repository;
+using Nlpc_Pension_Project.Application.Services;
+
+
+
+
 
 
 
@@ -31,7 +36,7 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<MemberValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployerDtoValidator>();
 //builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDto>();
-builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDtoValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDtoValidator>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
@@ -40,6 +45,7 @@ builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IContributionService, ContributionService>();
 builder.Services.AddScoped<ICalculateBenefit, CalculateBenefitService>();
 builder.Services.AddScoped<IEmployerService, EmployerService>();
+builder.Services.AddScoped<IBackgroundJobService, BackgroundJobs>();
 
 // Configure Hangfire
 builder.Services.AddHangfire(config =>
@@ -48,7 +54,6 @@ builder.Services.AddHangfireServer();
 
 
 
-builder.Services.AddScoped<IBackgroundJobService, BackgroundJobs>();
 
 
 builder.Services.AddApiVersioning(options =>
@@ -96,3 +101,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+
+
+

@@ -20,6 +20,9 @@ public class MappingProfile : Profile
 
         CreateMap<CreateEmployerDto, Employer>();
 
+        CreateMap<Contribution, ContributionDto>();
+
+
 
     }
 }

@@ -171,7 +171,7 @@ public class BackgroundJobs : IBackgroundJobService
             var total = thisMonthContributions.Sum(c => c.Amount);
             Console.WriteLine($"[Statement] Member {member.Id} - {member.FirstName}: Total this month: {total:C}");
 
-            // Optionally: Write to file, database, or email
+           
         }
     }
 }

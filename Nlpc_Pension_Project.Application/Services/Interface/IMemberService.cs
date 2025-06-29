@@ -1,4 +1,5 @@
 ﻿using Nlpc_Pension_Project.Application.Dtos;
+using Nlpc_Pension_Project.Domain.Entities;
 
 namespace Nlpc_Pension_Project.Application.Services.Interface;
 
@@ -9,5 +10,7 @@ public interface IMemberService
     Task<Responses<MemberDto>> CreateAsync(CreateMemberDto dto);
     Task<Responses<bool>> UpdateAsync(int id, CreateMemberDto dto);
     Task<Responses<bool>> DeleteAsync(int id);
+
+   
 }
 

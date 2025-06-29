@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nlpc_Pension_Project.Application.Dtos;
 using Nlpc_Pension_Project.Application.Services.Interface;
+using Microsoft.AspNetCore.Http;
+
 
 namespace Nlpc_Pension_Project.Controllers;
 
@@ -22,23 +24,19 @@ public class ContributionsController : ControllerBase
     public async Task<ActionResult<int>> Create([FromBody] ContributionProcessingDto request, CancellationToken cancellationToken)
     {
         var id = await _contributionService.CalculateContribution(request, cancellationToken);
-        return CreatedAtAction(nameof(GetById), new { id }, id);
-    }
-
-    [HttpGet("{id}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ContributionDto>> GetById(int id)
-    {
-        // Placeholder: Replace with service logic
-        return NotFound(); // Implement when needed
+        return Ok(new
+        {
+            id
+        });
     }
 
     [HttpGet("member/{memberId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<List<ContributionDto>>> GetForMember(int memberId)
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetContributionStatement(int memberId, CancellationToken cancellationToken)
     {
-        // Placeholder: Replace with service logic
-        return Ok(new List<ContributionDto>()); // Implement when needed
+        var response = await _contributionService.GetContributionStatement(memberId, cancellationToken);
+        return  Ok(response);
     }
+
 }
