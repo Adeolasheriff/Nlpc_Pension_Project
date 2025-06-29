@@ -16,7 +16,7 @@ public class EmployerService : IEmployerService
         _repository = repository;
         _mapper = mapper;
     }
-
+    // get all employer
     public async Task<Responses<IEnumerable<EmployerDto>>> GetAllAsync()
     {
         var requestTime = DateTime.UtcNow;
@@ -39,6 +39,7 @@ public class EmployerService : IEmployerService
         }
     }
 
+    // create employer
     public async Task<Responses<EmployerDto>> CreateAsync(CreateEmployerDto employerDto)
     {
         var requestTime = DateTime.UtcNow;
@@ -46,10 +47,7 @@ public class EmployerService : IEmployerService
 
         try
         {
-            // 🔍 Check if employer with same RegistrationNumber already exists
-            //var existing = await _repository.(
-            //    e => e.RegistrationNumber == employerDto.RegistrationNumber && !e.IsDeleted
-            //);
+          
 
             var existing = await _repository.ListAllAsync();
             if (existing != null && existing.Any(e => e.RegistrationNumber == employerDto.RegistrationNumber && !e.IsDeleted))

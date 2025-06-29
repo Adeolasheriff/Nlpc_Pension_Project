@@ -15,12 +15,6 @@ using Nlpc_Pension_Project.Application.Services;
 
 
 
-
-
-
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -35,8 +29,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<MemberValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployerDtoValidator>();
-//builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDto>();
-//builder.Services.AddValidatorsFromAssemblyContaining<BenefitRequestDtoValidator>();
+
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
@@ -75,7 +68,7 @@ var app = builder.Build();
 // Register background jobs with scoped service resolution
 
 
-// Optional: Enable Hangfire dashboard if needed
+//  Enable Hangfire dashboard if needed
 app.UseHangfireDashboard("/hangfire");
 
 if (app.Environment.IsDevelopment())
