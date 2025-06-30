@@ -31,6 +31,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<MemberValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployerDtoValidator>();
 
 
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
 // Configure services

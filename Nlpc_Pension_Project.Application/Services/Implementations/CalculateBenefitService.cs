@@ -13,10 +13,10 @@ namespace Nlpc_Pension_Project.Application.Services.Implementations;
 public class CalculateBenefitService : ICalculateBenefit
 {
     private readonly ApplicationDbContext _context;
-    //private readonly IValidator<BenefitRequestDto> _validator;
+   
 
     public CalculateBenefitService(ApplicationDbContext context
-        //IValidator<BenefitRequestDto> validator
+        
         )
     {
         _context = context;
@@ -27,21 +27,6 @@ public class CalculateBenefitService : ICalculateBenefit
     {
         var requestTime = DateTime.UtcNow;
         var requestId = Guid.NewGuid().ToString();
-
-
-        //var dto = new BenefitRequestDto { MemberId = memberId };
-
-        //// Synchronous validation
-        //var validationResult = _validator.Validate(dto);
-        //if (!validationResult.IsValid)
-        //{
-        //    var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
-        //    return Responses<BenefitDto>.Failure(
-        //        requestTime,
-        //        "Validation failed: " + string.Join(", ", errors),
-        //        "400"
-        //    );
-        //}
 
         try
         {
@@ -84,4 +69,3 @@ public class CalculateBenefitService : ICalculateBenefit
         }
     }
 }
-
